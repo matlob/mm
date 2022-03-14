@@ -1,12 +1,12 @@
 import random
 import telebot
 from telebot import types
-ToKen="1894082224:AAEmXvFMPzFkHeFbsLe4Isq6VCTHg3vvM"
+ToKen="1894082224:AAEmXvFMPzFkHeFbsLe4Isq6VCTHg3vvATM" # Token bot
 bot = telebot.TeleBot(ToKen)
 @bot.message_handler(commands = ["start"])
 def Start(message):
  Name = message.chat.first_name
- User = message.from_user.username 
+ User = message.chat.username 
  ID = message.chat.id
  A = types.InlineKeyboardMarkup(row_width=2)
  B = types.InlineKeyboardButton(text ="✅  المبرمج" , url = "t.me/F_7_U")
@@ -26,6 +26,8 @@ def answer(call):
         button(call.message)
     if call.data =="Iran":
         Iran(call.message)
+    if call.data == "relo":
+        Start(call.message)
 P  = types.InlineKeyboardButton(text = "الحصول على كومبو", callback_data= 'Iran')
 def button(message):
     O0 = types.InlineKeyboardMarkup(row_width=1)
@@ -35,7 +37,7 @@ def Iran(message):
 	abc='1234567890'
 	an='123456789'
 	ak="23456789"
-	savefile = open('VisaX.txt','a')
+	savefile = open('VisaX.txt','w')
 	for v in range(1000):
 		uss = str(''.join((random.choice(abc) for i in range(15))))
 		us = str(''.join((random.choice(abc) for i in range(1))))
@@ -44,5 +46,8 @@ def Iran(message):
 		xn = ('5'+uss+'|'+'0'+us+'|'+'202'+uk+'|'+am)
 		savefile.write(xn + "\n")
 	file = open('VisaX.txt','rb')
-	bot.send_document(message.chat.id,file,caption="<strong>New Combo</strong>",parse_mode="html")
+	A = types.InlineKeyboardMarkup(row_width=2)
+	D =  types.InlineKeyboardButton(text = "- تشغيل البوت مجدداً ♻️",callback_data="relo")
+	A.add(D)
+	bot.send_document(message.chat.id,file,caption="<strong>New Combo</strong>",parse_mode="html", reply_markup = A)
 bot.polling()
