@@ -1,0 +1,7 @@
+pytelegrambotapi
+gtts
+praw
+pyfiglet
+requests
+user_agent
+telebot
